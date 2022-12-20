@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const {RealEstate} = require("../models")
-const Op = require('Sequelize').Op
+const Op = require('sequelize').Op
 const Sequelize = require('sequelize');
 const {QueryTypes} = require('sequelize');
 
