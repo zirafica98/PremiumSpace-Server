@@ -15,11 +15,11 @@
     "dialect": "mysql"
   },
   "production": {
-
-    "username": "root",
-    "password": "root",
-    "database": "premiumspace",
-    "host": "localhost",
+    "use_env_variable": "37.48.121.26:3306",
+    "username": "premiums",
+    "password": "6ohe)!VBAE7h10",
+    "database": "premiums_db",
+    "host": "37.48.121.26",
     "dialect": "mysql"
   }
 }
