@@ -17,7 +17,7 @@
   "production": {
     "username": "premiums", 
     "password": "6ohe)!VBAE7h10",
-    "database": "premiums_db",
+    "database": "premiums_db", 
     "host": "37.48.121.26",
     "dialect": "mysql"
   }
