@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors')
-const PORT = 3001;
+const PORT = 8080;
 
 const db = require("./models")
 app.use(express.json());
@@ -23,7 +23,7 @@ const mailRouter = require('./routes/Mail')
 app.use("/mail",mailRouter);
 
 db.sequelize.sync().then(()=>{
-    app.listen(process.env.PORT || 3001, function(){
+    app.listen(process.env.PORT || PORT, function(){
         console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
       });
 })
