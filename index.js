@@ -23,7 +23,7 @@ const mailRouter = require('./routes/Mail')
 app.use("/mail",mailRouter);
 
 db.sequelize.sync().then(()=>{
-    app.listen(process.env.PORT || PORT,()=>{
-        console.log("Server running on port" +PORT);
-    })
+    app.listen(process.env.PORT || 3001, function(){
+        console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+      });
 })
