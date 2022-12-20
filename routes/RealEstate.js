@@ -5,10 +5,10 @@ const Op = require('sequelize').Op
 const Sequelize = require('sequelize');
 const {QueryTypes} = require('sequelize');
 
-const sequelize = new Sequelize("premiumspace","root","root",{
-    host: "localhost",
-    dialect: 'mysql'
-});
+// const sequelize = new Sequelize("premiumspace","root","root",{
+//     host: "localhost",
+//     dialect: 'mysql'
+// });
 
 
 router.get("/", async (req,res) => {
@@ -98,10 +98,10 @@ router.post("/add", async (req,res)=>{
     
 })
 
-router.get("/nextId", async (req,res) => {
-    const [results, metadata] = await sequelize.query("SELECT max(id) FROM realestates",{type: QueryTypes.SELECT});
-    res.json(results['max(id)']);
+// router.get("/nextId", async (req,res) => {
+//     const [results, metadata] = await sequelize.query("SELECT max(id) FROM realestates",{type: QueryTypes.SELECT});
+//     res.json(results['max(id)']);
 
-})
+// })
 
 module.exports = router

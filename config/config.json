@@ -15,7 +15,6 @@
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "37.48.121.26:3306",
     "username": "premiums",
     "password": "6ohe)!VBAE7h10",
     "database": "premiums_db",
