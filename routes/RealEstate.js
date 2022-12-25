@@ -5,10 +5,10 @@ const Op = require('sequelize').Op
 const Sequelize = require('sequelize');
 const {QueryTypes} = require('sequelize');
 
-// const sequelize = new Sequelize("premiumspace","root","root",{
-//     host: "localhost",
-//     dialect: 'mysql'
-// });
+const sequelize = new Sequelize("premiums_db","premiums","6ohe)!VBAE7h10",{
+    host: "37.48.121.26",
+    dialect: 'mysql'
+});
 
 
 router.get("/", async (req,res) => {
@@ -23,7 +23,7 @@ router.get("/byData/:id", async (req,res) => {
 })
 
 router.get("/last6", async (req,res) => {
-    const realEstate = await RealEstate.findAll({limit: 6 , createdAt:['createdAt', 'DESC']});
+    const realEstate = await RealEstate.findAll({limit: 6 ,attributes:["id","vrstaUsluge","naslov","opstina","opis","brojSoba","povrsina","base64"], createdAt:['createdAt', 'DESC']});
     res.json(realEstate);
 })
 
@@ -35,9 +35,9 @@ router.post("/byData", async (req,res) => {
     const typeSerice=data.typeService;
 
     if(searchWord!=""){
-        realEstate = await RealEstate.findAll({ where:{tipNekretnine: type , [Op.or]:{ulica: searchWord , grad: searchWord,  opstina: searchWord, drzava: searchWord}, [Op.and]:{vrstaUsluge:typeSerice}}});
+        realEstate = await RealEstate.findAll({attributes:["id","vrstaUsluge","naslov","opstina","opis","brojSoba","povrsina","base64"], where:{tipNekretnine: type , [Op.or]:{ulica: searchWord , grad: searchWord,  opstina: searchWord, drzava: searchWord}, [Op.and]:{vrstaUsluge:typeSerice}}});
     }else{
-        realEstate = await RealEstate.findAll({ where:{tipNekretnine: type ,[Op.and]:{vrstaUsluge:typeSerice}}});
+        realEstate = await RealEstate.findAll({ attributes:["id","vrstaUsluge","naslov","opstina","opis","brojSoba","povrsina","base64"],where:{tipNekretnine: type ,[Op.and]:{vrstaUsluge:typeSerice}}});
     }
     res.json(realEstate);
 })
@@ -92,16 +92,26 @@ router.post("/add", async (req,res)=>{
         drzava:realEstate.drzava,
         vrstaUsluge:realEstate.vrstaUsluge,
         brojSpratova:realEstate.brojSpratova,
-        slika:realEstate.slika
+        slika:realEstate.slika,
+        base64:realEstate.base64
       });
     res.json(result);
     
 })
 
-// router.get("/nextId", async (req,res) => {
-//     const [results, metadata] = await sequelize.query("SELECT max(id) FROM realestates",{type: QueryTypes.SELECT});
-//     res.json(results['max(id)']);
+router.get("/nextId", async(req,res) => {
+    // // const result = await sequelize.query("SELECT max(id) FROM realestates",{type: QueryTypes.SELECT});
+    // // res.json(result);
+    // const realEstate = await RealEstate.findAll({attributes:['id'], order:['createdAt', 'DESC']});
+    // //const obj = JSON.parse(realEstate);
+    // res.json(realEstate);
 
-// })
+    //ZAVRSAVA POSAO
+    // const realEstate = await RealEstate.findAll({attributes:["id"] ,createdAt:['createdAt', 'DESC']});
+    // res.json(realEstate);
 
+    const realEstate = await RealEstate.findAll({attributes:["id"] ,id:['id', 'DESC']});
+    res.json(realEstate);
+
+})
 module.exports = router

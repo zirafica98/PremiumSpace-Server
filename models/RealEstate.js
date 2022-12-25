@@ -89,6 +89,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull:true,
         },
+        base64:{
+            type: DataTypes.STRING,
+            allowNull:true
+        }
     })
 
     return RealEstate

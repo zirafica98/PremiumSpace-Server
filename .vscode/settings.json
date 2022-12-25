@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/94ab37b7-d563-4a87-a57d-fec568c6b420/AppServices/subscriptions/94ab37b7-d563-4a87-a57d-fec568c6b420/resourceGroups/premumspace-server_group/providers/Microsoft.Web/sites/premumspace-server",
+    "appService.deploySubpath": "."
+}
