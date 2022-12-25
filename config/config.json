@@ -15,10 +15,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "premiums", 
-    "password": "6ohe)!VBAE7h10",
-    "database": "premiums_db", 
-    "host": "37.48.121.26",
+    "username": "b1099a15adca03", 
+    "password": "3a1e4dd4",
+    "database": "heroku_68921afd6302828", 
+    "host": "eu-cdbr-west-03.cleardb.net",
     "dialect": "mysql"
   }
 }
